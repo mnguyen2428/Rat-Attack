@@ -28,7 +28,6 @@ public class Cat : MonoBehaviour
             else
             {
                 Debug.Log("Cat eat rat. Game over");
-                ScoreManager.instance.RemoveScore(1); // Decrease the score by 1
                 GameOver.instance.ShowGameOver(); // Call the GameOver method from GameManager
             }
         }
