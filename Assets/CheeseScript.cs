@@ -8,6 +8,7 @@ public class CheeseScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player collected the cheese!");
+            SoundManager.instance.PlayCheeseCollect();
             ScoreManager.instance.AddScore(1); // Increase the score by 1
 
             if(pairedCandy != null){

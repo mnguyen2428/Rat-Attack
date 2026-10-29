@@ -28,6 +28,7 @@ public class Cat : MonoBehaviour
             else
             {
                 Debug.Log("Cat eat rat. Game over");
+                SoundManager.instance.PlayCatHiss();
                 GameOver.instance.ShowGameOver(); // Call the GameOver method from GameManager
             }
         }

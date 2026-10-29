@@ -14,6 +14,7 @@ public class MouseTrap : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Player hit the mouse trap!");
+            SoundManager.instance.PlayRatTrap();
             ScoreManager.instance.RemoveScore(1); // Decrease the score by 1
             Destroy(gameObject); // Destroy the mouse trap object after collision
         }

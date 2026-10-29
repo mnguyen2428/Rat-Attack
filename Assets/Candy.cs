@@ -10,6 +10,7 @@ public class Candy : MonoBehaviour
 
         if(collision.CompareTag("Player") && player != null){
             //player.canEatCats = true;
+            SoundManager.instance.PlayCandyCrunch();
             player.ActivateCandy();
             Debug.Log("Rat can now eat cats");
 

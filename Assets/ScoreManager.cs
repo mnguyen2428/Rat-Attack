@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public int score = 0;
     public TMP_Text scoreText;
+    public TMP_Text endScore;
     
     void Awake(){
         instance = this;
@@ -27,6 +28,10 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreText(){
         scoreText.text = "Score: " + score.ToString();
+        endScore.text = "Score: " + score.ToString(); // To display end score
+        if(score >= 20){
+            SceneChanger.instance.ShowTunnel();
+        }
     }
 
 }

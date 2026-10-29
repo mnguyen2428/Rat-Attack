@@ -12,9 +12,6 @@ public class Spawn : MonoBehaviour
     public GameObject catPrefab;
     private GameObject currentCat;
 
-    public GameObject tunnelPrefab;
-    private GameObject currentTunnel;
-
     public GameObject candyPrefab;
     private GameObject currentCandy;
     public float candyChance = 0.2f;
@@ -117,18 +114,5 @@ public class Spawn : MonoBehaviour
             yield return new WaitUntil(() => currentCat == null); // Wait until the cat is destroyed
         }
     }
-    IEnumerator SpawnCandy(){
-        while(true){
-            yield return new WaitForSeconds(Random.Range(4f, 9f));
 
-            Vector3 viewportPosition = new Vector3(Random.Range(0.1f, 0.9f), Random.Range(0.1f, 0.9f), -Camera.main.transform.position.z);
-
-            Vector3 spawnPosition = Camera.main.ViewportToWorldPoint(viewportPosition);
-
-            spawnPosition.z = 0f;
-
-            currentCandy = Instantiate(candyPrefab, spawnPosition, Quaternion.identity);
-            yield return new WaitUntil(() => currentCandy == null); // Wait until the trap is destroyed
-        }
-    }
 }

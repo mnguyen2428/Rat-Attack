@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
         animator = GetComponent<Animator>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
+        originalColor = spriteRenderer.color; // Start with original color
     }
 
     void FixedUpdate(){
@@ -68,6 +68,7 @@ public class PlayerControl : MonoBehaviour
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
         if(Input.GetKeyDown(KeyCode.Space) && input != Vector2.zero){
+            SoundManager.instance.PlayBoost();
             boostTimer = boostDuration;
             spriteRenderer.color = boostColor;
         }
