@@ -46,11 +46,6 @@ public class Cat : MonoBehaviour
         originalColor = spriteRenderer.color;
         animator = GetComponent<Animator>();
 
-        player = FindAnyObjectByType<PlayerControl>();
-        if(player != null){
-            player = player.GetComponent<PlayerControl>();
-        }
-
         Destroy(gameObject, 10f); // Destroy the cat after 10 seconds
     }
 
@@ -64,11 +59,15 @@ public class Cat : MonoBehaviour
             animator.SetFloat("moveY", direction.y);
         }
         //spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     void LateUpdate(){
+        if(player == null){
+            player = FindAnyObjectByType<PlayerControl>();
+        }
+
         if(player != null && player.canEatCats){
-            //Debug.Log("Cat blue!!");
             spriteRenderer.color = eatColor;
         }
         else{

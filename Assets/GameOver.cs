@@ -6,6 +6,8 @@ public class GameOver : MonoBehaviour
 {
     public static GameOver instance;
     public GameObject gameOverPanel;
+    public string sceneToLoad;
+    public string mainMenuScene;
 
     void Awake(){
         instance = this;
@@ -20,5 +22,15 @@ public class GameOver : MonoBehaviour
     public void PlayAgain(){
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PlayWholeGame(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    public void MainMenu(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenuScene);
     }
 }

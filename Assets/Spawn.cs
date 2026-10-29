@@ -41,7 +41,7 @@ public class Spawn : MonoBehaviour
         while (true)
         {
             // Wait for a random time between 1 and 5 seconds
-            yield return new WaitForSeconds(Random.Range(1f, 5f));
+            yield return new WaitForSeconds(Random.Range(2f, 5f));
 
             currentCheese = Instantiate(cheesePrefab, GetRandomSpawnPosition(), Quaternion.identity);
 
@@ -60,7 +60,7 @@ public class Spawn : MonoBehaviour
     }
     IEnumerator SpawnTrap(){
         while(true){
-            yield return new WaitForSeconds(Random.Range(3f, 7f));
+            yield return new WaitForSeconds(Random.Range(3f, 8f));
 
             currentTrap = Instantiate(trapPrefab, GetRandomSpawnPosition(), Quaternion.identity);
             yield return new WaitUntil(() => currentTrap == null); // Wait until the trap is destroyed

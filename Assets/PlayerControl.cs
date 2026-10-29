@@ -50,13 +50,11 @@ public class PlayerControl : MonoBehaviour
         if (input.x != 0){
             input.y = 0;
         } 
-        //new Vector2(input.x * moveSpeed * Time.deltaTime, input.y * moveSpeed * Time.deltaTime);
+
         rb.linearVelocity = input * currentMoveSpeed * Time.fixedDeltaTime;
         if(rb.linearVelocity != Vector2.zero){
             animator.SetFloat("moveX", input.x);
             animator.SetFloat("moveY", input.y);
-            //animator.SetFloat("moveX", rb.linearVelocity.x);
-            //animator.SetFloat("moveY", rb.linearVelocity.y);
         }
 
         
@@ -67,12 +65,14 @@ public class PlayerControl : MonoBehaviour
     {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+        // Press space for boost
         if(Input.GetKeyDown(KeyCode.Space) && input != Vector2.zero){
             SoundManager.instance.PlayBoost();
             boostTimer = boostDuration;
             spriteRenderer.color = boostColor;
         }
 
+        // Countdown timer for candy effect
         if(canEatCats){
             candyTimer -= Time.deltaTime;
             if(candyTimer <= 0){

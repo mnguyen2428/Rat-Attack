@@ -13,7 +13,7 @@ public class CatsSpawn : MonoBehaviour
         // Spawn multiple cats for rat king fight
         StartCoroutine(SpawnCat());
         StartCoroutine(SpawnCat());
-        StartCoroutine(SpawnCat());
+        //StartCoroutine(SpawnCat());
     }
 
     // Update is called once per frame
@@ -24,28 +24,28 @@ public class CatsSpawn : MonoBehaviour
 
     IEnumerator SpawnCat(){
         while(true){
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            yield return new WaitForSeconds(Random.Range(0f, 4f));
 
-            int side = Random.Range(0, 4);
+            int side = Random.Range(0, 3);
 
             float x;
             float y;
             Vector2 direction;
 
             // Left side
-            if(side == 0){
-                x = -0.1f;
-                y = Random.Range(0.1f, 0.9f);
-                direction  = Vector2.right;
-            }
+            // if(side == 0){
+            //     x = -0.1f;
+            //     y = Random.Range(0.1f, 0.9f);
+            //     direction  = Vector2.right;
+            // }
             // Right side
-            else if(side == 1){
+            if(side == 0){
                 x = 1.1f;
                 y = Random.Range(0.1f, 0.9f);
                 direction  = Vector2.left;
             }
             // Down
-            else if(side == 2){
+            else if(side == 1){
                 x = Random.Range(0.1f, 0.9f);
                 y = -0.1f;
                 direction  = Vector2.up;
