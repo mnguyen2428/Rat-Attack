@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     void UpdateScoreText(){
         scoreText.text = "Score: " + score.ToString();
         endScore.text = "Score: " + score.ToString(); // To display end score
-        if(score >= 20){
+        if(score >= 14){
             SceneChanger.instance.ShowTunnel();
         }
     }

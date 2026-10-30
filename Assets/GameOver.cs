@@ -20,7 +20,7 @@ public class GameOver : MonoBehaviour
     }
 
     public void PlayAgain(){
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Resume game
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
